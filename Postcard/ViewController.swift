@@ -9,6 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var enterMessageTextField: UITextField!
+    
+    @IBOutlet weak var enterNameTextField: UITextField!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var mailButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +29,31 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func sendMailButtonPressed(sender: UIButton) {
+        
+        messageLabel.hidden = false
+        messageLabel.text = enterMessageTextField.text
+        messageLabel.textColor = UIColor.redColor()
+        
+        nameLabel.hidden = false
+        nameLabel.text = enterNameTextField.text
+        nameLabel.backgroundColor = UIColor.blueColor()
+        
+        enterMessageTextField.text = ""
+        enterMessageTextField.resignFirstResponder()
+        
+        enterNameTextField.text = ""
+        enterNameTextField.resignFirstResponder()
+        
+        //Adding comment to test pushing changes to github again
+        
+        mailButton.setTitle("Mail Sent", forState: UIControlState.Selected)
+        
+        
+        
     }
 
 
